@@ -77,8 +77,8 @@ export default function Home() {
         <Hero />
 
         <div className="max-w-6xl mx-auto px-4 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
-            <div className="order-2 lg:order-1">
+          <div className={`grid grid-cols-1 gap-6 mt-8 ${activePanel ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}>
+            <div className={`${activePanel ? 'order-2 lg:order-1' : ''}`}>
               {chatVisible && (
                 <div className="glass rounded-2xl overflow-hidden" style={{ height: "500px" }}>
                   <div className="flex items-center justify-between px-4 py-2.5 border-b border-border">
@@ -115,35 +115,19 @@ export default function Home() {
               )}
             </div>
 
-            <div className="order-1 lg:order-2 space-y-4">
-              <div className="flex items-center justify-between">
+            {activePanel && (
+              <div className="order-1 lg:order-2 space-y-4">
                 <h2 className="text-xs text-text-muted font-mono uppercase tracking-widest">
-                  {activePanel ? `▸ ${activePanel}` : "▸ idle"}
+                  ▸ {activePanel}
                 </h2>
-                {!activePanel && (
-                  <span className="text-[10px] text-text-muted font-mono">
-                    Ask the AI to show something
-                  </span>
-                )}
+                <PanelContainer
+                  activePanel={activePanel}
+                  onClose={() => { setActivePanel(null); setHighlightedSkill(null); }}
+                  onHighlightSkill={setHighlightedSkill}
+                  highlightedSkill={highlightedSkill}
+                />
               </div>
-              <PanelContainer
-                activePanel={activePanel}
-                onClose={() => { setActivePanel(null); setHighlightedSkill(null); }}
-                onHighlightSkill={setHighlightedSkill}
-                highlightedSkill={highlightedSkill}
-              />
-              {!activePanel && (
-                <div className="glass rounded-2xl p-8 text-center">
-                  <div className="text-text-muted text-sm space-y-2">
-                    <p className="text-3xl">💬</p>
-                    <p>Ask the AI assistant to show projects, skills, timeline, or contact info.</p>
-                    <p className="text-xs text-text-muted mt-2">
-                      Try: &quot;Show me your projects&quot; or &quot;What technologies do you use?&quot;
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+            )}
           </div>
         </div>
 
