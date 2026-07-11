@@ -1,0 +1,33 @@
+{
+  "basic": {
+    "name": "Shoaib Rasool",
+    "title": "Full Stack AI Developer",
+    "email": "shooaib6@gmail.com",
+    "location": "ISLAMABAD, PAKISTAN",
+    "bio": "Building things that matter. Passionate about AI, distributed systems, and elegant code.",
+    "available": true,
+    "pronouns": "he/him"
+  },
+  "social": {
+    "github": "shoaibrasool",
+    "linkedin": "shoaib-rasool-193150221",
+    "twitter": "",
+    "website": ""
+  },
+  "skills": [
+    { "category": "Languages", "items": ["TypeScript", "Python", "Rust", "Go"] },
+    { "category": "Frontend", "items": ["React", "Next.js", "Tailwind CSS", "Three.js"] },
+    { "category": "Backend", "items": ["Node.js", "FastAPI", "PostgreSQL", "Redis"] },
+    { "category": "DevOps", "items": ["Docker", "Kubernetes", "AWS", "GitHub Actions"] },
+    { "category": "AI/ML", "items": ["LLMs", "RAG", "Vector Databases", "LangChain"] }
+  ],
+  "education": [
+    {
+      "institution": "AIR UNIVERSITY ISLAMABAD",
+      "degree": "B.S.",
+      "field": "Artificial Intelligence",
+      "start": "2022",
+      "end": "2026"
+    }
+  ]
+}

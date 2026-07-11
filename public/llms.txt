@@ -1,0 +1,16 @@
+# Portfolio
+> AI-optimized portfolio with interactive chat, auto-synced GitHub projects, and LinkedIn data.
+
+## Sections
+- / - Main portfolio with AI chat assistant
+- /linkedin - LinkedIn data import page
+
+## Person
+- Name: [Set in profile.json]
+- GitHub: https://github.com/[username]
+- LinkedIn: https://linkedin.com/in/[username]
+
+## Data Sources
+- GitHub repos: /api/github/repos
+- Profile data: /data/profile.json
+- LinkedIn data: /data/linkedin-data.json
