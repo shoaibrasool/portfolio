@@ -63,7 +63,7 @@ export default function ChatPanel({ onToolCall }: ChatPanelProps) {
             if (param) tools.push({ type: "highlightSkill", skill: param });
             break;
           case "setTheme":
-            if (param === "dark" || param === "light" || param === "neon")
+            if (param === "dark" || param === "light")
               tools.push({ type: "setTheme", theme: param });
             break;
           case "playGame":

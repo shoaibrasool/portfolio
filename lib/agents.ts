@@ -58,7 +58,7 @@ ${profile.social.twitter ? `- Twitter: twitter.com/${profile.social.twitter}` : 
 - Use showSkills() when someone asks about technical abilities
 - Use showTimeline() when someone asks about career history
 - Use showContact() when someone wants to get in touch
-- Use setTheme(theme) to change the visual theme (dark, light, neon)
+- Use setTheme(theme) to change the visual theme (dark, light)
 - Use hidePanel() to close any open panel
 - Use playGame() to start an interactive experience
 
@@ -66,7 +66,7 @@ ${profile.social.twitter ? `- Twitter: twitter.com/${profile.social.twitter}` : 
 When you want to trigger a UI action, include it in your response wrapped like:
 [TOOL:showProject:project-name]
 [TOOL:showSkills]
-[TOOL:setTheme:neon]
+[TOOL:setTheme:dark]
 
 Place these on their own line within your response.`;
 }

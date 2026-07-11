@@ -79,7 +79,7 @@ export type AgentTool =
   | { type: "hidePanel" }
   | { type: "scrollTimelineTo"; year: string }
   | { type: "highlightSkill"; skill: string }
-  | { type: "setTheme"; theme: "dark" | "light" | "neon" }
+  | { type: "setTheme"; theme: "dark" | "light" }
   | { type: "playGame" };
 
 export interface ChatMessage {

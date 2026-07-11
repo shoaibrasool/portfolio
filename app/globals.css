@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #12121a;
-  --color-bg-card: #1a1a25;
-  --color-bg-hover: #22223a;
-  --color-accent: #6c5ce7;
-  --color-accent-light: #a29bfe;
-  --color-accent-glow: rgba(108, 92, 231, 0.15);
-  --color-text-primary: #e8e8f0;
-  --color-text-secondary: #9090a8;
-  --color-text-muted: #606078;
-  --color-border: #2a2a3a;
-  --color-success: #00d68f;
-  --color-warning: #ffaa44;
-  --color-error: #ff6b6b;
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-hover: var(--bg-hover);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-glow: var(--accent-glow);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
   --font-sans: "Inter", system-ui, sans-serif;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
@@ -23,9 +23,44 @@
   --animate-spin-slow: spin 4s linear infinite;
 }
 
+:root,
+[data-theme="dark"] {
+  --bg-primary: #1c1b20;
+  --bg-secondary: #232227;
+  --bg-card: #2a292e;
+  --bg-hover: #343338;
+  --accent: #8bb8d9;
+  --accent-light: #b0d0e8;
+  --accent-glow: rgba(139, 184, 217, 0.15);
+  --text-primary: #e8e4df;
+  --text-secondary: #a8a29b;
+  --text-muted: #7a746d;
+  --border: #353339;
+  --success: #7cc99a;
+  --warning: #d9b060;
+  --error: #d47a7a;
+}
+
+[data-theme="light"] {
+  --bg-primary: #faf7f2;
+  --bg-secondary: #f0ece4;
+  --bg-card: #ffffff;
+  --bg-hover: #e8e4dc;
+  --accent: #7fa8c9;
+  --accent-light: #a8c8e0;
+  --accent-glow: rgba(127, 168, 201, 0.12);
+  --text-primary: #3d3833;
+  --text-secondary: #7a7269;
+  --text-muted: #a89f94;
+  --border: #e0dad1;
+  --success: #6fbf8c;
+  --warning: #d4a857;
+  --error: #c96e6e;
+}
+
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px var(--color-accent-glow); }
-  50% { box-shadow: 0 0 40px var(--color-accent-glow), 0 0 60px rgba(108, 92, 231, 0.1); }
+  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+  50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 60px color-mix(in srgb, var(--accent) 10%, transparent); }
 }
 
 @keyframes fade-in {
@@ -39,13 +74,13 @@
 }
 
 body {
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-sans);
 }
 
 ::selection {
-  background: var(--color-accent);
+  background: var(--accent);
   color: white;
 }
 
@@ -54,22 +89,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--border);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+  background: var(--text-muted);
 }
 
 .typing-cursor::after {
   content: "|";
   animation: blink 1s step-end infinite;
-  color: var(--color-accent);
+  color: var(--accent);
 }
 
 @keyframes blink {
@@ -77,15 +112,15 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent), #00d68f);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--success));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glass {
-  background: rgba(18, 18, 26, 0.6);
+  background: color-mix(in srgb, var(--bg-card) 60%, transparent);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--border);
 }
