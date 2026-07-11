@@ -2,6 +2,17 @@
 
 import { useEffect, useRef } from "react";
 
+function getAccentRGB(): { r: number; g: number; b: number } {
+  const style = getComputedStyle(document.documentElement);
+  const color = style.getPropertyValue("--accent").trim();
+  const hex = color.replace("#", "");
+  return {
+    r: parseInt(hex.substring(0, 2), 16),
+    g: parseInt(hex.substring(2, 4), 16),
+    b: parseInt(hex.substring(4, 6), 16),
+  };
+}
+
 export default function ParticleNetwork() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -39,6 +50,8 @@ export default function ParticleNetwork() {
       if (!canvas || !ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      const { r, g, b } = getAccentRGB();
+
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.x += p.vx;
@@ -49,7 +62,7 @@ export default function ParticleNetwork() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(108, 92, 231, 0.3)";
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.3)`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -62,7 +75,7 @@ export default function ParticleNetwork() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(108, 92, 231, ${0.08 * (1 - dist / connectionDistance)})`;
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${0.08 * (1 - dist / connectionDistance)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

@@ -7,11 +7,11 @@ import ChatPanel from "@/components/chat/ChatPanel";
 import PanelContainer from "@/components/panels/PanelContainer";
 import ParticleNetwork from "@/components/effects/ParticleNetwork";
 import Spotlight from "@/components/effects/Spotlight";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<PanelId>(null);
   const [highlightedSkill, setHighlightedSkill] = useState<string | null>(null);
-  const [theme, setTheme] = useState<"dark" | "light" | "neon">("dark");
   const [chatVisible, setChatVisible] = useState(true);
 
   const handleToolCall = useCallback((tool: AgentTool) => {
@@ -46,30 +46,17 @@ export default function Home() {
         }, 300);
         break;
       case "setTheme":
-        setTheme(tool.theme);
+        document.documentElement.setAttribute("data-theme", tool.theme);
+        localStorage.setItem("theme", tool.theme);
         break;
       case "playGame":
         break;
     }
   }, []);
 
-  const themeStyles: Record<string, React.CSSProperties> = {
-    dark: { "--bg-primary": "#0a0a0f", "--bg-secondary": "#12121a" } as React.CSSProperties,
-    light: {
-      "--bg-primary": "#f5f5f0",
-      "--bg-secondary": "#e8e8e0",
-    } as React.CSSProperties,
-    neon: {
-      "--bg-primary": "#050510",
-      "--bg-secondary": "#0a0a20",
-    } as React.CSSProperties,
-  };
-
   return (
-    <main
-      style={themeStyles[theme]}
-      className="min-h-screen relative transition-colors duration-500"
-    >
+    <main className="min-h-screen relative transition-colors duration-500">
+      <ThemeToggle />
       <ParticleNetwork />
       <Spotlight />
 
