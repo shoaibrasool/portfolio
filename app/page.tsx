@@ -8,6 +8,8 @@ import PanelContainer from "@/components/panels/PanelContainer";
 import ParticleNetwork from "@/components/effects/ParticleNetwork";
 import Spotlight from "@/components/effects/Spotlight";
 import ThemeToggle from "@/components/ThemeToggle";
+import NavBar from "@/components/NavBar";
+import ProjectCarousel from "@/components/ProjectCarousel";
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<PanelId>(null);
@@ -56,18 +58,33 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative transition-colors duration-500">
-      <ThemeToggle />
+      <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+        <NavBar onToolCall={handleToolCall} />
+        <ThemeToggle />
+      </div>
       <ParticleNetwork />
       <Spotlight />
 
       <div className="relative z-20">
         <Hero />
 
+        <div className="mt-6 mb-8">
+          <ProjectCarousel />
+        </div>
+
+        <div className="flex items-center gap-3 justify-center mb-8">
+          <div className="h-px w-8 bg-border" />
+          <span className="text-[10px] text-text-muted font-mono tracking-widest uppercase">
+            Ask me anything ↓
+          </span>
+          <div className="h-px w-8 bg-border" />
+        </div>
+
         <div className="max-w-6xl mx-auto px-4 pb-24">
-          <div className={`grid grid-cols-1 gap-6 mt-8 ${activePanel ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}>
+          <div className={`grid grid-cols-1 gap-6 ${activePanel ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}>
             <div className={`${activePanel ? 'order-2 lg:order-1' : ''}`}>
               {chatVisible && (
-                <div className="glass rounded-2xl overflow-hidden" style={{ height: "500px" }}>
+                <div className="glass rounded-2xl overflow-hidden min-h-[200px] max-h-[600px]">
                   <div className="flex items-center justify-between px-4 py-2.5 border-b border-border">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-success" />
