@@ -4,9 +4,10 @@
     "title": "Full Stack AI Developer",
     "email": "shooaib6@gmail.com",
     "location": "ISLAMABAD, PAKISTAN",
-    "bio": "AI Engineer with Full Stack Production Experience",
+    "bio": "I build AI systems from idea to production.",
     "available": true,
-    "pronouns": "he/him"
+    "pronouns": "he/him",
+    "avatar": "/portrait.png"
   },
   "social": {
     "github": "shoaibrasool",
