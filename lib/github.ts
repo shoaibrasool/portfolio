@@ -6,11 +6,14 @@ function headers(token?: string): Record<string, string> {
   return h;
 }
 
+const excludeRepos = new Set(["Portfolio"]);
+
 export async function fetchRepos(username: string, token?: string): Promise<GitHubRepo[]> {
   const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=50&type=public`;
   const res = await fetch(url, { headers: headers(token), next: { revalidate: 3600 } });
   if (!res.ok) throw new Error(`GitHub API: ${res.status} ${res.statusText}`);
-  return res.json();
+  const repos: GitHubRepo[] = await res.json();
+  return repos.filter((r) => !excludeRepos.has(r.name));
 }
 
 export async function fetchLanguages(repoFullName: string, token?: string): Promise<Record<string, number>> {

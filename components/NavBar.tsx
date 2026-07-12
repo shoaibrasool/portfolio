@@ -1,6 +1,7 @@
 "use client";
 
 import type { AgentTool } from "@/lib/types";
+import profile from "@/data/profile.json";
 
 interface NavBarProps {
   onToolCall: (tool: AgentTool) => void;
@@ -8,37 +9,32 @@ interface NavBarProps {
 
 export default function NavBar({ onToolCall }: NavBarProps) {
   return (
-    <nav className="flex items-center gap-1 px-2 py-1.5 rounded-xl glass border border-border">
+    <nav className="flex items-center gap-2">
+      <a
+        href="/work"
+        className="px-3 py-1.5 text-[11px] font-mono rounded-xl glass border border-border text-text-muted hover:text-accent hover:border-accent/30 transition-all"
+      >
+        Work
+      </a>
       <a
         href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="px-2.5 py-1 text-[11px] font-mono text-text-muted hover:text-accent transition-colors rounded-lg hover:bg-bg-hover"
+        className="px-3 py-1.5 text-[11px] font-mono rounded-xl glass border border-border text-text-muted hover:text-accent hover:border-accent/30 transition-all"
       >
         Résumé
       </a>
-      <span className="w-px h-3 bg-border" />
       <a
-        href="https://github.com/shoaibrasool"
+        href={`https://github.com/${(profile as { social: { github: string } }).social.github}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="px-2.5 py-1 text-[11px] font-mono text-text-muted hover:text-accent transition-colors rounded-lg hover:bg-bg-hover"
+        className="px-3 py-1.5 text-[11px] font-mono rounded-xl glass border border-border text-text-muted hover:text-accent hover:border-accent/30 transition-all"
       >
         GitHub
       </a>
-      <span className="w-px h-3 bg-border" />
-      <a
-        href="https://linkedin.com/in/shoaib-rasool-193150221"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-2.5 py-1 text-[11px] font-mono text-text-muted hover:text-accent transition-colors rounded-lg hover:bg-bg-hover"
-      >
-        LinkedIn
-      </a>
-      <span className="w-px h-3 bg-border" />
       <button
         onClick={() => onToolCall({ type: "showContact" })}
-        className="px-2.5 py-1 text-[11px] font-mono text-text-muted hover:text-accent transition-colors rounded-lg hover:bg-bg-hover"
+        className="px-3 py-1.5 text-[11px] font-mono rounded-xl glass border border-border text-text-muted hover:text-accent hover:border-accent/30 transition-all"
       >
         Contact
       </button>
