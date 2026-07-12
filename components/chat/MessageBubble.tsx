@@ -9,7 +9,7 @@ export default function MessageBubble({ message }: { message: ChatMessage }) {
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} animate-fade-in`}>
       {!isUser && (
         <div className="w-7 h-7 mt-1 mr-2 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-          <span className="text-xs text-accent-light font-mono">AI</span>
+          <span className="text-xs text-accent-light font-mono">SR</span>
         </div>
       )}
       <div

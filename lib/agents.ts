@@ -10,7 +10,7 @@ export function buildSystemPrompt(
     .map((e) => `  ${e.degree} in ${e.field} at ${e.institution} (${e.start}-${e.end})`)
     .join("\n");
   const expList = linkedin.experience
-    .map((e) => `  ${e.title} at ${e.company} (${e.start}-${e.end})`)
+    .map((e) => `  ${e.title} at ${e.company} (${e.start}-${e.end})\n     ${e.description}`)
     .join("\n");
   const projList = repos
     .slice(0, 10)

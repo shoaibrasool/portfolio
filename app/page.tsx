@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import type { PanelId, AgentTool } from "@/lib/types";
 import Hero from "@/components/Hero";
 import ChatPanel from "@/components/chat/ChatPanel";
@@ -23,8 +23,24 @@ import profile from "@/data/profile.json";
 export default function Home() {
   const [activePanel, setActivePanel] = useState<PanelId>(null);
   const [highlightedSkill, setHighlightedSkill] = useState<string | null>(null);
-  const [chatVisible, setChatVisible] = useState(true);
+  const [chatVisible, setChatVisible] = useState(false);
   const { toast, copy } = useCopyToast();
+
+  useEffect(() => {
+    const el = document.getElementById("skills-section");
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setChatVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "-40% 0px -10% 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleToolCall = useCallback((tool: AgentTool) => {
     switch (tool.type) {
@@ -88,7 +104,7 @@ export default function Home() {
       <Spotlight />
 
       <div className="relative z-20">
-        <Hero />
+        <Hero onStartChat={() => { setChatVisible(true); document.getElementById("skills-section")?.scrollIntoView({ behavior: "smooth" }); }} />
 
         <section id="work" className="max-w-6xl mx-auto px-4 lg:pl-24 py-16">
           <span className="section-label mb-8">
@@ -129,7 +145,7 @@ export default function Home() {
                   <div className="flex items-center justify-between px-4 py-2.5 border-b border-border">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-success" />
-                      <span className="text-xs text-text-muted font-mono">AI Assistant</span>
+                      <span className="text-xs text-text-muted font-mono">Chat with Shoaib</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <button

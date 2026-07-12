@@ -14,17 +14,12 @@ export default function ChatPanel({ onToolCall }: ChatPanelProps) {
     {
       id: "0",
       role: "assistant",
-      content: "Hey! I'm an AI assistant that knows everything about my creator. What would you like to know?",
+      content: "Hey! I'm Shoaib — ask me anything about my work, experience, or skills!",
     },
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -113,19 +108,12 @@ export default function ChatPanel({ onToolCall }: ChatPanelProps) {
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
-          const chunk = decoder.decode(value, { stream: true });
-          const lines = chunk.split("\n").filter((l) => l.startsWith("0:"));
-          for (const line of lines) {
-            try {
-              const jsonStr = line.slice(2).trim();
-              const parsed = JSON.parse(jsonStr);
-              fullText += parsed;
-              const { cleanText, tools } = parseToolCalls(fullText);
-              setMessages((prev) =>
-                prev.map((m) => (m.id === assistantId ? { ...m, content: cleanText, toolCalls: tools } : m))
-              );
-            } catch { /* continue */ }
-          }
+          const text = decoder.decode(value, { stream: true });
+          fullText += text;
+          const { cleanText, tools } = parseToolCalls(fullText);
+          setMessages((prev) =>
+            prev.map((m) => (m.id === assistantId ? { ...m, content: cleanText, toolCalls: tools } : m))
+          );
         }
 
         const { cleanText, tools } = parseToolCalls(fullText);
@@ -161,7 +149,7 @@ export default function ChatPanel({ onToolCall }: ChatPanelProps) {
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" style={{ animationDelay: "0.4s" }} />
           </div>
         )}
-        <div ref={endRef} />
+        <div />
       </div>
 
       <div className="border-t border-border p-3 space-y-2">
