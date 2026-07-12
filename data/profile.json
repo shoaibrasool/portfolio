@@ -24,11 +24,18 @@
   ],
   "education": [
     {
-      "institution": "AIR UNIVERSITY ISLAMABAD",
-      "degree": "B.S.",
+      "institution": "Air University",
+      "degree": "Bachelor's degree",
       "field": "Artificial Intelligence",
-      "start": "2022",
-      "end": "2026"
+      "start": "Sep 2022",
+      "end": "Jun 2026"
+    },
+    {
+      "institution": "Pakistan Secondary School",
+      "degree": "inter",
+      "field": "",
+      "start": "2019",
+      "end": "2021"
     }
   ]
 }

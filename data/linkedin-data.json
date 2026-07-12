@@ -1,5 +1,97 @@
 {
-  "experience": [],
-  "education": [],
-  "skills": []
+  "experience": [
+    {
+      "company": "Anemoia",
+      "title": "Artificial Intelligence Engineer",
+      "location": "Wah Cantonment, Punjab, Pakistan",
+      "start": "Jan 2026",
+      "end": "Present",
+      "description": "Currently working as an Artificial Intelligence Engineer at Anemoia, developing innovative AI applications using LangChain and LangGraph.\n\nDesigning and implementing AI pipelines for knowledge-based and conversational applications\nExploring LLM integrations and prompt engineering to create intelligent, context-aware systems\nBuilding scalable and modular AI architectures for real-world applications\nCollaborating with the team to develop solutions that leverage cutting-edge AI frameworks and tools\nExperimenting with LangChain and LangGraph to streamline development of AI-powered apps…"
+    },
+    {
+      "company": "Cofttech.ai",
+      "title": "Junior NLP Engineer",
+      "location": "Islamabad, Islāmābād, Pakistan",
+      "start": "Sep 2025",
+      "end": "Mar 2026",
+      "description": "Worked as a Junior NLP Engineer, leading the development of a full-stack Retrieval-Augmented Generation (RAG) platform enabling non-technical users to create and deploy AI chatbots.\n\nBuilt an end-to-end RAG-based application using React, FastAPI, and Pinecone\nDesigned a user-friendly platform allowing non-technical users to create, customize, and deploy chatbots dynamically\nImplemented document ingestion, chunking, embedding generation, and semantic retrieval pipelines\nIntegrated vector database (Pinecone) for efficient context retrieval and improved response accuracy\nDeveloped scalable backend APIs for chatbot creation, management, and real-time interaction\nEnabled multi-platform chatbot deployment including websites, embeddable widgets, and Slack integrations\nApplied prompt engineering and context management techniques to reduce hallucinations and improve relevance\nCollaborated on delivering a production-ready AI product with real-world usage…"
+    },
+    {
+      "company": "Cofttech.ai",
+      "title": "NLP Intern",
+      "location": "Islamabad, Islāmābād, Pakistan",
+      "start": "Jun 2025",
+      "end": "Aug 2025",
+      "description": "NLP Intern at Cofttech, working on Retrieval-Augmented Generation (RAG) systems by combining LLMs with vector search to build accurate and context-aware AI applications."
+    },
+    {
+      "company": "Booma Enterprises Exeter",
+      "title": "Full-stack Developer",
+      "location": "United Kingdom",
+      "start": "Mar 2024",
+      "end": "May 2025",
+      "description": "Booma Enterprises deals with numerous businesses based in Exeter UK and me as a full stack web developer developing a dashboard for a Taxi company using React as front end and firebase as backend services. Also I developed one mobile app for them using react native which contained many complexities.…"
+    },
+    {
+      "company": "Enigma Software Solution",
+      "title": "Frontend React Developer",
+      "location": "Islamabad, Pakistan",
+      "start": "Jul 2022",
+      "end": "Feb 2024",
+      "description": "Made in-house attendance management system. Working on a client project with other team mates"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Air University",
+      "degree": "Bachelor's degree",
+      "field": "Artificial Intelligence",
+      "start": "Sep 2022",
+      "end": "Jun 2026"
+    },
+    {
+      "institution": "Pakistan Secondary School",
+      "degree": "inter",
+      "field": "",
+      "start": "2019",
+      "end": "2021"
+    }
+  ],
+  "skills": [
+    "Full-Stack Development",
+    "LangGraph",
+    "Pinecone.io",
+    "LangChain",
+    "Fast Api",
+    "Chatbot Development",
+    "Prompt Engineering",
+    "Vector Databases",
+    "Natural Language Processing (NLP)",
+    "Retrieval-Augmented Generation (RAG)",
+    "Large Language Models (LLM)",
+    "React Native",
+    "Redux",
+    "Context",
+    "TypeScript",
+    "Material-UI",
+    "Node.js",
+    "MongoDB",
+    "Mongoose",
+    "Tailwind CSS",
+    "Firebase",
+    "Cloud Firestore",
+    "React.js",
+    "HTML",
+    "Cascading Style Sheets (CSS)",
+    "Bootstrap (Framework)",
+    "Website Building",
+    "Python (Programming Language)",
+    "JavaScript",
+    "C++",
+    "Affiliate Marketing",
+    "Account Management",
+    "Advertising",
+    "Traffic Management",
+    "Affiliate Management"
+  ]
 }

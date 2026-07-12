@@ -17,7 +17,7 @@ export default function TimelinePanel() {
     })),
     ...education.map((e) => ({
       date: `${e.start} - ${e.end}`,
-      title: `${e.degree} in ${e.field}`,
+      title: e.field ? `${e.degree} in ${e.field}` : e.degree,
       subtitle: e.institution,
       description: "",
       type: "education" as const,

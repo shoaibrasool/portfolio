@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import profile from "@/data/profile.json";
 
-export default function Hero() {
+export default function Hero({ onStartChat }: { onStartChat?: () => void }) {
   const p = (profile as { basic: { name: string; title: string; bio: string; location: string; available: boolean; avatar: string }; social: { github: string; linkedin: string }; skills: { category: string; items: string[] }[] }).basic;
   const social = (profile as { social: { github: string; linkedin: string } }).social;
   const allTech = (profile as { skills: { category: string; items: string[] }[] }).skills
@@ -60,6 +60,14 @@ export default function Hero() {
               View my work
               <span className="inline-block ml-1.5 transition-transform group-hover:translate-x-1">→</span>
             </a>
+            <button
+              type="button"
+              onClick={onStartChat}
+              className="group px-5 py-2.5 rounded-xl bg-cta text-white hover:bg-cta-hover transition-all shadow-lg shadow-cta/20 font-medium text-sm"
+            >
+              Ask me anything
+              <span className="inline-block ml-1.5">↓</span>
+            </button>
             <a
               href={`https://linkedin.com/in/${social.linkedin}`}
               target="_blank"
